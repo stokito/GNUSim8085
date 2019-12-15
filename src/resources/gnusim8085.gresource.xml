@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/gnusim8085">
+    <file preprocess="xml-stripblanks">ui_description.xml</file>
+  </gresource>
+</gresources>

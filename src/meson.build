@@ -1,4 +1,17 @@
+resources = gnome.compile_resources(
+  'gnusim8085-resources',
+  join_paths(
+    'resources', 'gnusim8085.gresource.xml'
+  ),
+  source_dir: 'resources',
+  c_name: 'gnusim8085',
+  install_header: false,
+  install: false
+)
+
+
 gnusim8085_sources = [
+ resources,
 '8085-asm.c',
 '8085.c',
 '8085-instructions.c',

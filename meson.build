@@ -3,6 +3,7 @@ project('gnusim8085', 'c',
   license : 'GPL-2.0+',
   meson_version : '>=0.41.0'
 )
+gnome = import('gnome')
 packagename = meson.project_name()
 prefix = get_option('prefix')
 bindir = get_option('bindir')

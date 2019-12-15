@@ -72,75 +72,6 @@ static const GtkToggleActionEntry toggle_entries[] = {
   { "SidePane", GTK_STOCK_FULLSCREEN, NULL, NULL, N_("Show/Hide side pane"), G_CALLBACK (show_hide_side_pane) }
 };
 
-static const char *ui_description =
-  "<ui>"
-  "  <menubar name='MainMenu'>"
-  "    <menu action='FileMenu'>"
-  "      <menuitem action='New'/>"
-  "      <menuitem action='Open'/>"
-  "      <menuitem action='Save'/>"
-  "      <menuitem action='SaveAs'/>"
-  "      <menuitem action='Print'/>"
-  "      <separator/>"
-  "      <menuitem action='Font'/>"
-  "      <separator/>"
-  "      <menuitem action='Quit'/>"
-  "    </menu>"
-  "    <menu action='ResetMenu'>"
-  "      <menuitem action='Registers'/>"
-  "      <menuitem action='Flags'/>"
-  "      <menuitem action='IOPorts'/>"
-  "      <menuitem action='Memory'/>"
-  "      <separator/>"
-  "      <menuitem action='ResetAll'/>"
-  "    </menu>"
-  "    <menu action='AssemblerMenu'>"
-  "      <menuitem action='Assemble'/>"
-  "      <menuitem action='Execute'/>"
-  "      <separator/>"
-  "      <menuitem action='Listing'/>"
-  "    </menu>"
-  "    <menu action='DebugMenu'>"
-  "      <menuitem action='StepIn'/>"
-  "      <menuitem action='StepOver'/>"
-  "      <menuitem action='StepOut'/>"
-  "      <separator/>"
-  "      <menu action='BreakPointMenu'>"
-  "        <menuitem action='ToggleBreak'/>"
-  "        <separator/>"
-  "        <menuitem action='ClearBreak'/>"
-  "      </menu>"
-  "      <separator/>"
-  "      <menuitem action='StopExec'/>"
-  "    </menu>"
-  "    <menu action='HelpMenu'>"
-  "      <menuitem action='Help'/>"
-  "      <menuitem action='Tutorial'/>"
-  "      <separator/>"
-  "      <menuitem action='About'/>"
-  "    </menu>"
-  "  </menubar>"
-  "  <toolbar name='MainToolBar'>"
-  "    <toolitem action='New'/>"
-  "    <toolitem action='Open'/>"
-  "    <toolitem action='Save'/>"
-  "    <toolitem action='SaveAs'/>"
-  "    <toolitem action='Print'/>"
-  "    <separator/>"
-  "    <toolitem action='Assemble'/>"
-  "    <toolitem action='Execute'/>"
-  "    <separator/>"
-  "    <toolitem action='StepIn'/>"
-  "    <toolitem action='StepOver'/>"
-  "    <toolitem action='StepOut'/>"
-  "    <separator/>"
-  "    <toolitem action='ToggleBreak'/>"
-  "    <toolitem action='StopExec'/>"
-  "    <separator/>"
-  "    <toolitem action='SidePane'/>"
-  "  </toolbar>"
-  "</ui>";
-
 GtkWidget*
 create_window_main (void)
 {
@@ -287,7 +218,7 @@ create_window_main (void)
   gtk_window_add_accel_group (GTK_WINDOW (window_main), accel_group);
 
   error = NULL;
-  if (!gtk_ui_manager_add_ui_from_string (ui_manager, ui_description, -1, &error))
+  if (!gtk_ui_manager_add_ui_from_resource (ui_manager, "/com/github/gnusim8085/ui_description.xml", &error))
     {
       g_message ("building menus failed: %s", error->message);
       g_error_free (error);
